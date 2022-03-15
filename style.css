@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000112;
+}
+
+.datatempo{
+ color: aliceblue;
+ background: #000112;
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ width: 340px;
+ padding: 15px 10px;
+ border: 3px solid #2476b4;
+ border-radius: 5px;
+ -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+ transition: 0.5s;
+ transition-property: background, box-shadow; /* definindo a transicao para ser mais "suave" no relogio ao passar o mouse */
+}
+
+.datatempo:hover{
+    background: #2476b4;
+    box-shadow: 0 0 40px #2476b4;
+}
+
+.data{
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.tempo{
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .tempo span:not(:last-child){
+    position: relative;
+    margin: 0 6px;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 3px;
+} serve para mexer em todos os filhos de tempo menos o ultimo*/
+
+/* .tempo span:last-child{
+    background: ;
+} serve para mexer em apenas o ultimo filho de tempo*/

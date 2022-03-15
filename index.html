@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″><!-- fazendo acentuacão funcionar -->
+    <title>Relógio digital</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body onload="initRelogio()">
+
+    <div class="datatempo">
+        <div class="data">
+            <span id="dia">Dia</span>,
+            <span id="mes">Mês</span>,
+            <span id="ano">Ano</span>
+            <!-- <span id="dia">Dia</span> -->
+        </div>
+    
+        <div class="tempo">
+            <span id="hora">00</span>:
+            <span id="minuto">00</span>
+            <!-- <span id="dia">Dia</span> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        function updateRelogio(){  /* maneira que encontrei para o relógio ser atualizado sem atualizar a página */
+            var data = new Date();
+            var di = data.getDate(),
+          me = data.getMonth()+1,
+          an = data.getFullYear(),
+          hor = data.getHours(),
+          min = data.getMinutes();
+
+          Number.prototype.pad = function(digits){   /* deixando minuto com dois digitos */
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+            /* var meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]; */
+            var ids = ["dia", "mes", "ano", "hora", "minuto"];
+            var valores = [di.pad(2), me.pad(2), an, hor, min.pad(2)];
+            for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = valores[i];
+        }
+
+        function initRelogio(){
+            updateRelogio();
+            window.setInterval("updateRelogio()", 1);
+        }
+
+        
+    </script>
+</body>
+
+</html>
